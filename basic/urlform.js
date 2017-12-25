@@ -2,7 +2,7 @@ var http = require('http');
 var data =[];
 
 var qs = require('querystring');
-
+var	url_demo	=	"http://localhost:"+1234;
 var server = http.createServer(function(req, res)
 
 {
@@ -35,10 +35,11 @@ function tampilkanForm(res)
 {
 
 var html = '<html><head><title>Asik nih</title></head><body>'
-+ '<h1>Bikin form lewat JS !</h1><p>Ini irwan</p></br>'
++ '<h1>Bikin form lewat JS !</h1><p>Silahkan masukan hobi anda</p></br>'
 +	'<form	method="post"	action="/">'
 +	'<p><input	type="text"	name="hobi"></p>'
-+	'<p><input	type="submit"	value="Simpan"></p>'
++	'<p><input	type="submit"	value="Simpan"></p></form><br>'
++	'<p>Atau kembali ke <a href = '+url_demo+"/hello"+' >awal</a>'
 + '</body></html>'; //tanda + untuk meneruskan isi body dari yang sebelumnya
 
 
@@ -78,7 +79,7 @@ function notFound(res)
 
 function helloCode(res)
 {
-	var hello = '<h1>Welcome !</h1>'	
+	var hello = '<h1><a href = '+url_demo+' >Welcome !</a></h1>'	
 	res.statusCode=200;
 	res.setHeader('Content-Type', 'text/html');
 	res.setHeader('Content-Length', Buffer.byteLength(hello));
@@ -86,5 +87,5 @@ function helloCode(res)
 }
 
 
-server.listen(3400);
+server.listen(1234);
 console.log('ready ...');
